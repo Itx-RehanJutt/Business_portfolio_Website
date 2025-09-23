@@ -1,0 +1,83 @@
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+
+const EditServiceForm = ({ services, setServices }) => {
+  const { index } = useParams();
+  const navigate = useNavigate();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  useEffect(() => {
+    if (services && services[index]) {
+      setTitle(services[index].title || "");
+      setDescription(services[index].description || "");
+    } else {
+      navigate("/services"); 
+    }
+  }, [index, services, navigate]);
+
+  const handleUpdate = () => {
+    if (!title.trim()) {
+      alert("Service title is required!");
+      return;
+    }
+
+    const updated = [...services];
+    updated[index] = { title, description };
+    setServices(updated);
+
+    navigate("/services");
+  };
+
+  return (
+    <div className="bg-[#B7B0F5] min-h-screen flex justify-center items-center px-4">
+      <div className="bg-white w-full max-w-[560px] p-6 sm:p-10 rounded-2xl shadow-md">
+        <h3 className="text-2xl sm:text-3xl font-extrabold mb-6 sm:mb-8 text-gray-800">
+          Edit Service
+        </h3>
+
+        {/* Title */}
+        <label className="block font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-gray-700">
+          Service Title
+        </label>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="w-full h-12 sm:h-14 px-4 sm:px-5 mb-6 sm:mb-8 rounded-md bg-gray-100 outline-none text-base sm:text-lg"
+          placeholder="Update service title"
+        />
+
+        {/* Description */}
+        <label className="block font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-gray-700">
+          Service Description
+        </label>
+        <input
+          type="text"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          className="w-full h-12 sm:h-14 px-4 sm:px-5 mb-8 sm:mb-10 rounded-md bg-gray-100 outline-none text-base sm:text-lg"
+          placeholder="Update service description"
+        />
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          <button
+            onClick={handleUpdate}
+            className="w-full sm:w-auto px-6 sm:px-7 py-3 rounded-md text-white bg-[#00B787] hover:bg-[#00a37a] text-base sm:text-lg font-semibold"
+          >
+            Update
+          </button>
+          <button
+            onClick={() => navigate("/services")}
+            className="w-full sm:w-auto px-6 sm:px-7 py-3 rounded-md bg-gray-300 hover:bg-gray-400 text-base sm:text-lg font-semibold"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default EditServiceForm;

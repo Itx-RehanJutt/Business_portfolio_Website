@@ -1,11 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
-import './index.css';
+import { createBrowserRouter, RouterProvider } from 'react-router';
+import NotFound from './components/NotFound.jsx';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-);
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: '/',
+        element: <NotFound />,
+      },
+    ],
+  },
+]);
+
+const root = createRoot(document.querySelector('#root'));
+root.render(<RouterProvider router={router} />);

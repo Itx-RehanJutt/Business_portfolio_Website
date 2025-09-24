@@ -12,13 +12,17 @@ const EditServiceForm = ({ services, setServices }) => {
       setTitle(services[index].title || "");
       setDescription(services[index].description || "");
     } else {
-      navigate("/services"); 
+      navigate("/services");
     }
   }, [index, services, navigate]);
 
   const handleUpdate = () => {
     if (!title.trim()) {
       alert("Service title is required!");
+      return;
+    }
+    const confirmUpdate = window.confirm("Are you sure you want to update this service?");
+    if (!confirmUpdate) {
       return;
     }
 

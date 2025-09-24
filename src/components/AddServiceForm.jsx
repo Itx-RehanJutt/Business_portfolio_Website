@@ -6,8 +6,24 @@ const AddServiceForm = ({ services, setServices }) => {
   const [description, setDescription] = useState("");
   const navigate = useNavigate();
 
-  const handleSave = () => {
-    if (!title.trim()) return;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validation
+    if (!title.trim()) {
+      alert("Service title is required!");
+      return;
+    }
+    if (!description.trim()) {
+      alert("Service description is required!");
+      return;
+    }
+
+    const confirmSubmit = window.confirm("Are you sure you want to submit this service?");
+    if (!confirmSubmit) {
+      return; 
+    }
+
     const newService = { title, description };
     setServices([...services, newService]);
     navigate("/services");
@@ -25,45 +41,49 @@ const AddServiceForm = ({ services, setServices }) => {
           Add New Service
         </h3>
 
-        {/* Service Title */}
-        <label className="block font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-gray-700">
-          Service Title
-        </label>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="w-full h-12 sm:h-14 px-4 sm:px-5 mb-6 sm:mb-8 rounded-md bg-gray-100 outline-none text-base sm:text-lg"
-          placeholder="Enter service title"
-        />
+        {/* Form */}
+        <form onSubmit={handleSubmit}>
+          {/* Service Title */}
+          <label className="block font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-gray-700">
+            Service Title
+          </label>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="w-full h-12 sm:h-14 px-4 sm:px-5 mb-6 sm:mb-8 rounded-md bg-gray-100 outline-none text-base sm:text-lg"
+            placeholder="Enter service title"
+          />
 
-        {/* Service Description */}
-        <label className="block font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-gray-700">
-          Service Description
-        </label>
-        <input
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          className="w-full h-12 sm:h-14 px-4 sm:px-5 mb-8 sm:mb-10 rounded-md bg-gray-100 outline-none text-base sm:text-lg"
-          placeholder="Enter service description"
-        />
+          {/* Service Description */}
+          <label className="block font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-gray-700">
+            Service Description
+          </label>
+          <input
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="w-full h-12 sm:h-14 px-4 sm:px-5 mb-8 sm:mb-10 rounded-md bg-gray-100 outline-none text-base sm:text-lg"
+            placeholder="Enter service description"
+          />
 
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-          <button
-            onClick={handleSave}
-            className="w-full sm:w-auto px-6 sm:px-7 py-3 rounded-md text-white bg-[#00B787] hover:bg-[#00a37a] text-base sm:text-lg font-semibold"
-          >
-            Save Service
-          </button>
-          <button
-            onClick={handleCancel}
-            className="w-full sm:w-auto px-6 sm:px-7 py-3 rounded-md bg-gray-300 hover:bg-gray-400 text-base sm:text-lg font-semibold"
-          >
-            Cancel
-          </button>
-        </div>
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <button
+              type="submit"
+              className="w-full sm:w-auto px-6 sm:px-7 py-3 rounded-md text-white bg-[#00B787] hover:bg-[#00a37a] text-base sm:text-lg font-semibold"
+            >
+              Save Service
+            </button>
+            <button
+              type="button"
+              onClick={handleCancel}
+              className="w-full sm:w-auto px-6 sm:px-7 py-3 rounded-md bg-gray-300 hover:bg-gray-400 text-base sm:text-lg font-semibold"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

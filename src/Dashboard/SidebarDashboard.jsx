@@ -7,17 +7,17 @@ import testimonialsIcon from "../assets/testimonials.png";
 import messagesIcon from "../assets/message.png";
 import { LogOut, Menu, X } from "lucide-react";
 
-const Sidebar = () => {
+const SidebarDashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { name: "Dashboard", path: "/", icon: dashboardIcon },
-    { name: "Services", path: "/services", icon: servicesIcon },
-    { name: "Portfolio", path: "/portfolio", icon: portfolioIcon },
-    { name: "Testimonials", path: "/testimonials", icon: testimonialsIcon },
-    { name: "Messages", path: "/messages", icon: messagesIcon },
+    { name: "Dashboard", path: "/dashboard", icon: dashboardIcon },
+    { name: "Services", path: "/dashboard/services", icon: servicesIcon },
+    { name: "Portfolio", path: "/dashboard/portfolio", icon: portfolioIcon },
+    { name: "Testimonials", path: "/dashboard/testimonials", icon: testimonialsIcon },
+    { name: "Messages", path: "/dashboard/messages", icon: messagesIcon },
   ];
 
   return (
@@ -89,4 +89,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SidebarDashboard;

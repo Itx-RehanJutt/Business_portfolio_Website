@@ -1,10 +1,10 @@
 import React from "react";
-import Profile from "/images/portfolio/profile.png";
-import Message from "/images/portfolio/message.png";
-import Delete from "/images/portfolio/delete.png";
-import Edit from "/images/portfolio/edit.png";
+import Profile from "../assets/profile.png";
+import Message from "../assets/message.png";
+import Delete from "../assets/bin.png";
+import Edit from "../assets/editbtn.png";
 
-function Portfolio() {
+function PortfolioDashboard() {
   return (
     <div className="min-h-screen bg-[#C7C6FB] py-8 px-4 flex flex-col justify-center items-center">
       {/* Title Section */}
@@ -80,4 +80,4 @@ function Portfolio() {
   );
 }
 
-export default Portfolio;
+export default PortfolioDashboard;

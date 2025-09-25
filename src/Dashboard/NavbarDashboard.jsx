@@ -14,7 +14,7 @@ const NavbarDashboard = ({ userName = "User Name" }) => {
         {/* Right: Button + Icon */}
         <div className="flex items-center justify-center sm:justify-end gap-3 sm:gap-4 lg:ml-auto">
           <Link
-            to="/add-service"
+            to="/dashboard/add-service"
             className="bg-[#FFA500] hover:bg-[#ff9400] text-white font-medium px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm md:text-base whitespace-nowrap"
           >
             Add Service

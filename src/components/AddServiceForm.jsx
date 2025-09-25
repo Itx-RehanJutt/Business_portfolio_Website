@@ -26,11 +26,11 @@ const AddServiceForm = ({ services, setServices }) => {
 
     const newService = { title, description };
     setServices([...services, newService]);
-    navigate("/services");
+    navigate("/dashboard/services");
   };
 
   const handleCancel = () => {
-    navigate("/services");
+    navigate("/dashboard/services");
   };
 
   return (

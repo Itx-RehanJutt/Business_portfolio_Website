@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const EditServiceForm = ({ services, setServices }) => {
   const { index } = useParams();
-  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -11,26 +10,22 @@ const EditServiceForm = ({ services, setServices }) => {
     if (services && services[index]) {
       setTitle(services[index].title || "");
       setDescription(services[index].description || "");
-    } else {
-      navigate("/services");
     }
-  }, [index, services, navigate]);
+  }, [index, services]);
 
   const handleUpdate = () => {
     if (!title.trim()) {
       alert("Service title is required!");
-      return;
+      return false;
     }
     const confirmUpdate = window.confirm("Are you sure you want to update this service?");
-    if (!confirmUpdate) {
-      return;
-    }
+    if (!confirmUpdate) return false;
 
     const updated = [...services];
     updated[index] = { title, description };
     setServices(updated);
 
-    navigate("/services");
+    return true; // success flag
   };
 
   return (
@@ -66,18 +61,24 @@ const EditServiceForm = ({ services, setServices }) => {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <button
-            onClick={handleUpdate}
-            className="w-full sm:w-auto px-6 sm:px-7 py-3 rounded-md text-white bg-[#00B787] hover:bg-[#00a37a] text-base sm:text-lg font-semibold"
+          {/* Update Button */}
+          <Link
+            to="/dashboard/services"
+            onClick={(e) => {
+              if (!handleUpdate()) e.preventDefault(); // only navigate if update success
+            }}
+            className="w-full sm:w-auto px-6 sm:px-7 py-3 rounded-md text-white bg-[#00B787] hover:bg-[#00a37a] text-base sm:text-lg font-semibold text-center"
           >
             Update
-          </button>
-          <button
-            onClick={() => navigate("/services")}
-            className="w-full sm:w-auto px-6 sm:px-7 py-3 rounded-md bg-gray-300 hover:bg-gray-400 text-base sm:text-lg font-semibold"
+          </Link>
+
+          {/* Cancel Button */}
+          <Link
+            to="/dashboard/services"
+            className="w-full sm:w-auto px-6 sm:px-7 py-3 rounded-md bg-gray-300 hover:bg-gray-400 text-base sm:text-lg font-semibold text-center"
           >
             Cancel
-          </button>
+          </Link>
         </div>
       </div>
     </div>

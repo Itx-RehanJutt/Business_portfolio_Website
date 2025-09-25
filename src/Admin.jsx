@@ -4,16 +4,22 @@ import NavbarDashboard from './Dashboard/NavbarDashboard';
 import SidebarDashboard from './Dashboard/SidebarDashboard';
 
 function Admin() {
+
+  // Services state 
+  const [services, setServices] = useState([
+    { title: "Web Development" },
+    { title: "App Development" },
+  ]);
   return (
     <div className="flex min-h-screen">
-        <ScrollToTop />
+      <ScrollToTop />
       {/* Sidebar */}
       <SidebarDashboard />
       {/* Main content */}
       <div className="flex-1 flex flex-col">
         <NavbarDashboard />
         <main className="p-6 flex-1">
-          <Outlet />
+          <Outlet context={{ services, setServices }} />
         </main>
       </div>
     </div>

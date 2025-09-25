@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMessages } from "./MessagesContext.jsx"; 
 
 const ContactSection = () => {
-  const { addMessage } = useMessages(); 
+  // const { addMessage } = useMessages();
   const [formData, setFormData] = useState({
     name: "",
     email: "",

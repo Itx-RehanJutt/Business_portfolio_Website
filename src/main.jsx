@@ -15,11 +15,7 @@ import MessageDashboard from "./Dashboard/MessageDashboard.jsx";
 import EditServiceForm from "./components/EditServiceForm";
 import AddServiceForm from "./components/AddServiceForm.jsx";
 
-// Services state 
-const [services, setServices] = useState([
-  { title: "Web Development" },
-  { title: "App Development" },
-]);
+
 
 // Router setup
 const router = createBrowserRouter([
@@ -46,9 +42,9 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { path: "", element: <DashboardHome /> },
-      { path: "services", element: <ServiceDashboard services={services} setServices={setServices} /> },
-      { path: "edit-service/:index", element: <EditServiceForm services={services} setServices={setServices} /> },
-      { path: "add-service", element: <AddServiceForm services={services} setServices={setServices} /> },
+      { path: "services", element: <ServiceDashboard /> },
+      { path: "edit-service/:index", element: <EditServiceForm /> },
+      { path: "add-service", element: <AddServiceForm /> },
       { path: "portfolio", element: <PortfolioDashboard /> },
       { path: "message", element: <MessageDashboard /> },
     ],

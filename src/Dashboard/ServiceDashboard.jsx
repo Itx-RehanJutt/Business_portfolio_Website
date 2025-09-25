@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import editIcon from "../assets/editbtn.png";
 import binIcon from "../assets/bin.png";
 
-const ServicesTable = ({ services, setServices }) => {
+const ServiceDashboard = ({ services, setServices }) => {
   const navigate = useNavigate();
 
   const handleDelete = (index) => {
@@ -74,5 +74,5 @@ const ServicesTable = ({ services, setServices }) => {
   );
 };
 
-export default ServicesTable;
+export default ServiceDashboard;
 

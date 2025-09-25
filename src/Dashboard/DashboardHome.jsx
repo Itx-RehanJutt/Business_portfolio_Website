@@ -1,7 +1,7 @@
 import React from "react";
 import graphImage from "../assets/dashboard-graph.png";
 
-const DashboardContent = () => {
+const DashboardHome = () => {
   return (
     <div className="w-full min-h-screen bg-[#C7C6FB] py-4 px-2 sm:py-10 sm:px-4">
       <div className="block md:hidden space-y-6">
@@ -113,4 +113,4 @@ const DashboardContent = () => {
   );
 };
 
-export default DashboardContent;
+export default DashboardHome;

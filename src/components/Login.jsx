@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Image from "/images/login/login.png";
-import Facebook from "/images/login/facebookIcon.png";
-import Google from "/images/login/googleIcon.png";
-import Apple from "/images/login/appleIcon.png";
+// import Image from "/images/login/login.png";
+// import Facebook from "/images/login/facebookIcon.png";
+// import Google from "/images/login/googleIcon.png";
+// import Apple from "/images/login/appleIcon.png";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,18 +17,16 @@ function Login() {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-indigo-500 to-purple-400 px-4">
-        <h3
-  className="
+      <h3
+        className="
     absolute top-6 left-1/2 transform -translate-x-1/2
     text-white font-semibold
     text-lg sm:text-2xl md:text-3xl lg:text-4xl
     text-center
   "
->
-  Logo Business Name
-</h3>
-
-
+      >
+        Logo Business Name
+      </h3>
 
       <div className="bg-gradient-to-t from-[#FFFFFF] to-[#999999] bg-opacity-80 rounded-2xl shadow-xl p-8 w-full max-w-md">
         <div className="flex justify-center mb-4">
@@ -135,13 +133,13 @@ function Login() {
 
         <div className="flex justify-center mt-4 space-x-4">
           <button className="bg-gray-300 px-8 rounded-lg hover:bg-gray-200">
-            <img src={Google} alt="Google" className="w-4 h-4 items-center" />
+            <img src="" alt="Google" className="w-4 h-4 items-center" />
           </button>
           <button className="bg-gray-300 px-8 rounded-lg hover:bg-gray-200">
-            <img src={Facebook} alt="Facebook" className="w-4 h-4" />
+            <img src="" alt="Facebook" className="w-4 h-4" />
           </button>
           <button className="bg-gray-300 px-8 py-2 rounded-lg hover:bg-gray-200">
-            <img src={Apple} alt="Apple" className="w-4 h-4" />
+            <img src="" alt="Apple" className="w-4 h-4" />
           </button>
         </div>
       </div>

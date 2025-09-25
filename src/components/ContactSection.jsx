@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useMessages } from "./MessagesContext.jsx"; 
 
 const ContactSection = () => {
+  const { addMessage } = useMessages(); 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,21 +33,22 @@ const ContactSection = () => {
       setErrors(validationErrors);
     } else {
       setErrors({});
-      alert("Form submitted successfully");
+      // add to context
+      addMessage(formData);
+
+      alert("Message submitted successfully");
+
       setFormData({ name: "", email: "", message: "" });
     }
   };
 
   return (
     <section className="w-full flex flex-col items-center justify-center bg-white py-16 px-4">
-      {/* Heading */}
       <h1 className="text-4xl md:text-4xl font-bold mb-16 text-center">
         CONTACT US
       </h1>
 
-      {/* Wrapper */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-[212px] w-full max-w-[1258px]">
-        {/* Form */}
         <form
           onSubmit={handleSubmit}
           className="flex flex-col justify-between w-full max-w-[535px] h-auto md:h-[410px]"
@@ -86,7 +89,6 @@ const ContactSection = () => {
             )}
           </div>
 
-          {/* Button Bottom Center */}
           <div className="flex justify-center">
             <button
               type="submit"
@@ -99,7 +101,6 @@ const ContactSection = () => {
           </div>
         </form>
 
-        {/* Map */}
         <div className="w-full max-w-[511px] h-[300px] md:h-[391px]">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1722474.0442021615!2d72.19405915912739!3d32.52061483664475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfeb6bb5c0b649%3A0xb15572084afd9b0e!2sNational%20Aerospace%20Science%20and%20Technology%20Park%20(NASTP)!5e0!3m2!1sen!2s!4v1758704864911!5m2!1sen!2s"

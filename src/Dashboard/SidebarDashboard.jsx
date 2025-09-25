@@ -17,7 +17,7 @@ const SidebarDashboard = () => {
     { name: "Services", path: "/dashboard/services", icon: servicesIcon },
     { name: "Portfolio", path: "/dashboard/portfolio", icon: portfolioIcon },
     { name: "Testimonials", path: "/dashboard/testimonials", icon: testimonialsIcon },
-    { name: "Messages", path: "/dashboard/messages", icon: messagesIcon },
+    { name: "Message", path: "/dashboard/message", icon: messagesIcon },
   ];
 
   return (

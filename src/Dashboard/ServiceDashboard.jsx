@@ -1,11 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import editIcon from "../assets/editbtn.png";
 import binIcon from "../assets/bin.png";
 
 const ServiceDashboard = ({ services, setServices }) => {
-  const navigate = useNavigate();
-
   const handleDelete = (index) => {
     const confirmDelete = window.confirm("Are you sure you want to delete?");
     if (confirmDelete) {
@@ -42,9 +40,10 @@ const ServiceDashboard = ({ services, setServices }) => {
               <div className="text-black font-semibold text-base sm:text-lg">
                 {service.title}
               </div>
+              {/* Edit Button as Link */}
               <div className="flex justify-center">
-                <button
-                  onClick={() => navigate(`/edit-service/${i}`)}
+                <Link
+                  to={`/dashboard/edit-service/${i}`}
                   className="p-1 rounded-full hover:bg-gray-100 cursor-pointer"
                 >
                   <img
@@ -52,8 +51,9 @@ const ServiceDashboard = ({ services, setServices }) => {
                     alt="Edit"
                     className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
                   />
-                </button>
+                </Link>
               </div>
+              {/* Delete Button */}
               <div className="flex justify-center">
                 <button
                   onClick={() => handleDelete(i)}

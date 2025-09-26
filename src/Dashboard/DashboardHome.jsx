@@ -3,21 +3,26 @@ import graphImage from "../assets/dashboard-graph.png";
 
 const DashboardHome = () => {
   return (
-    <div className="w-full min-h-screen bg-[#C7C6FB] py-4 px-2 sm:py-10 sm:px-4">
-      <div className="block md:hidden space-y-6">
+    <div className="w-full min-h-screen bg-[#C7C6FB] py-4 px-0 sm:py-15 sm:px-4">
+
+      {/* Mobile View */}
+      <div className="block md:hidden space-y-6 px-4 mx-auto w-full max-w-md">
         {/* Project Items Card */}
-        <div className="bg-white shadow-md rounded-2xl p-6 mx-auto w-full max-w-md">
-          <p className="text-xl sm:text-2xl font-bold text-black mb-3 tracking-tight">
+        <div className="bg-white shadow-md rounded-2xl p-4 w-full">
+          <p className="text-xl sm:text-2xl font-bold text-black mb-3 tracking-tight text-center">
             Project Items
           </p>
-          <p className="text-4xl sm:text-6xl font-semibold text-black mb-4">
+          <p className="text-4xl sm:text-4xl font-semibold text-black mb-4 text-center">
             342
           </p>
+          {/* Bigger Purple Bar */}
           <div className="w-full h-3 bg-purple-500 rounded-full mb-2"></div>
-          <div className="w-1/3 h-3 bg-gray-300 rounded-full"></div>
+          <div className="w-1/3 h-3 bg-gray-300 rounded-full mx-auto"></div>
         </div>
-        <div className="bg-white shadow-md rounded-2xl p-6 mx-auto w-full max-w-md">
-          <div className="mb-8">
+
+        {/* Total Services + Messages */}
+        <div className="bg-white shadow-md rounded-2xl p-6 w-full">
+          <div className="mb-8 text-center">
             <p className="text-xl sm:text-2xl font-bold text-black mb-3 tracking-tight">
               Total Services
             </p>
@@ -25,11 +30,11 @@ const DashboardHome = () => {
               125
             </p>
             <div className="w-full h-3 bg-green-500 rounded-full mb-2"></div>
-            <div className="w-1/3 h-3 bg-gray-300 rounded-full"></div>
+            <div className="w-1/3 h-3 bg-gray-300 rounded-full mx-auto"></div>
           </div>
 
           {/* New Messages */}
-          <div>
+          <div className="text-center">
             <p className="text-xl sm:text-2xl font-bold text-black mb-3 tracking-tight">
               New Messages
             </p>
@@ -41,7 +46,7 @@ const DashboardHome = () => {
         </div>
 
         {/* Revenue Card */}
-        <div className="bg-white shadow-md rounded-2xl p-6 mx-auto w-full max-w-md">
+        <div className="bg-white shadow-md rounded-2xl p-6 w-full">
           <img
             src={graphImage}
             alt="Revenue graph"
@@ -58,7 +63,7 @@ const DashboardHome = () => {
         </div>
       </div>
 
-      {/* Desktop View (Original Layout) */}
+      {/* Desktop View (No Change) */}
       <div className="hidden md:flex justify-center items-start">
         <div className="relative w-full max-w-6xl">
           {/* LEFT CARD – Total Services & Messages */}

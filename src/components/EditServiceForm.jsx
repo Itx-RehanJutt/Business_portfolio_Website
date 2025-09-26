@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useOutletContext } from "react-router-dom";
 
-const EditServiceForm = ({ services, setServices }) => {
+const EditServiceForm = () => {
+  const { services, setServices } = useOutletContext();
   const { index } = useParams();
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -18,6 +20,7 @@ const EditServiceForm = ({ services, setServices }) => {
       alert("Service title is required!");
       return false;
     }
+
     const confirmUpdate = window.confirm("Are you sure you want to update this service?");
     if (!confirmUpdate) return false;
 
@@ -25,7 +28,7 @@ const EditServiceForm = ({ services, setServices }) => {
     updated[index] = { title, description };
     setServices(updated);
 
-    return true; // success flag
+    return true; 
   };
 
   return (
@@ -65,7 +68,7 @@ const EditServiceForm = ({ services, setServices }) => {
           <Link
             to="/dashboard/services"
             onClick={(e) => {
-              if (!handleUpdate()) e.preventDefault(); // only navigate if update success
+              if (!handleUpdate()) e.preventDefault(); 
             }}
             className="w-full sm:w-auto px-6 sm:px-7 py-3 rounded-md text-white bg-[#00B787] hover:bg-[#00a37a] text-base sm:text-lg font-semibold text-center"
           >

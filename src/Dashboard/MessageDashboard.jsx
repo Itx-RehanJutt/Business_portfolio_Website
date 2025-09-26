@@ -1,8 +1,8 @@
 import React from "react";
-import { useMessages } from "../components/MessagesContext.jsx";
+import { useOutletContext } from "react-router-dom";
 
 const MessageDashboard = () => {
-  const { messages } = useMessages();
+  const { messages } = useOutletContext();
 
   return (
     <div className="bg-[#B7B0F5] min-h-screen flex items-center justify-center px-4 py-10">
@@ -14,7 +14,6 @@ const MessageDashboard = () => {
           Messages Management
         </h2>
 
-        {/* Mobile / Tablet View – Stacked Cards */}
         <div className="block md:hidden w-full space-y-5 sm:space-y-6">
           {messages.length === 0 ? (
             <div className="bg-white shadow-md rounded-2xl p-5 sm:p-6 text-center">
@@ -40,7 +39,6 @@ const MessageDashboard = () => {
           )}
         </div>
 
-        {/* Desktop View – Table */}
         <div className="hidden md:block w-full">
           <div className="overflow-x-auto">
             <table className="w-full border-separate border-spacing-y-3 sm:border-spacing-y-4">
@@ -93,6 +91,3 @@ const MessageDashboard = () => {
 };
 
 export default MessageDashboard;
-
-
-

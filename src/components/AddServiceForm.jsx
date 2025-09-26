@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
-const AddServiceForm = ({ services, setServices }) => {
+const AddServiceForm = () => {
+  const { services, setServices } = useOutletContext();
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const navigate = useNavigate();
@@ -9,7 +11,6 @@ const AddServiceForm = ({ services, setServices }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validation
     if (!title.trim()) {
       alert("Service title is required!");
       return;
@@ -20,12 +21,17 @@ const AddServiceForm = ({ services, setServices }) => {
     }
 
     const confirmSubmit = window.confirm("Are you sure you want to submit this service?");
-    if (!confirmSubmit) {
-      return; 
-    }
+    if (!confirmSubmit) return;
 
     const newService = { title, description };
+
     setServices([...services, newService]);
+
+    // Clear form
+    setTitle("");
+    setDescription("");
+
+    // Redirect
     navigate("/dashboard/services");
   };
 
@@ -36,14 +42,11 @@ const AddServiceForm = ({ services, setServices }) => {
   return (
     <div className="bg-[#B7B0F5] min-h-screen flex justify-center items-center px-4 sm:px-6 py-8">
       <div className="bg-white w-full max-w-lg sm:max-w-2xl p-6 sm:p-10 rounded-2xl shadow-md">
-        {/* Title */}
         <h3 className="text-2xl sm:text-3xl font-extrabold mb-6 sm:mb-8 text-gray-800 text-center sm:text-left">
           Add New Service
         </h3>
 
-        {/* Form */}
         <form onSubmit={handleSubmit}>
-          {/* Service Title */}
           <label className="block font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-gray-700">
             Service Title
           </label>
@@ -55,7 +58,6 @@ const AddServiceForm = ({ services, setServices }) => {
             placeholder="Enter service title"
           />
 
-          {/* Service Description */}
           <label className="block font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-gray-700">
             Service Description
           </label>
@@ -67,7 +69,6 @@ const AddServiceForm = ({ services, setServices }) => {
             placeholder="Enter service description"
           />
 
-          {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <button
               type="submit"

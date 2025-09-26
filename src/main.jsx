@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
@@ -11,31 +11,20 @@ import Login from "./components/Login.jsx";
 import DashboardHome from "./Dashboard/DashboardHome.jsx";
 import ServiceDashboard from "./Dashboard/ServiceDashboard.jsx";
 import PortfolioDashboard from "./Dashboard/PortfolioDashboard.jsx";
+import { MessagesProvider } from "./Context/MessagesContext.jsx";
+
 import MessageDashboard from "./Dashboard/MessageDashboard.jsx";
-import EditServiceForm from "./components/EditServiceForm";
+import EditServiceForm from "./components/EditServiceForm.jsx";
 import AddServiceForm from "./components/AddServiceForm.jsx";
 
-
-
-// Router setup
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <NotFound />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-    ],
+    children: [{ path: "/", element: <Home /> }],
   },
-  // Login Route
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  // Admin Dashboard Routes
+  { path: "/login", element: <Login /> },
   {
     path: "/dashboard",
     element: <Admin />,
@@ -51,5 +40,13 @@ const router = createBrowserRouter([
   },
 ]);
 
-const root = createRoot(document.querySelector('#root'));
-root.render(<RouterProvider router={router} />);
+const root = createRoot(document.querySelector("#root"));
+root.render(
+  <MessagesProvider>
+    <RouterProvider router={router} />
+  </MessagesProvider>
+);
+
+
+// const root = createRoot(document.querySelector('#root'));
+// root.render(<RouterProvider router={router} />);

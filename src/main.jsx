@@ -12,6 +12,7 @@ import DashboardHome from "./Dashboard/DashboardHome.jsx";
 import ServiceDashboard from "./Dashboard/ServiceDashboard.jsx";
 import PortfolioDashboard from "./Dashboard/PortfolioDashboard.jsx";
 import { MessagesProvider } from "./Context/MessagesContext.jsx";
+
 import MessageDashboard from "./Dashboard/MessageDashboard.jsx";
 import EditServiceForm from "./components/EditServiceForm.jsx";
 import AddServiceForm from "./components/AddServiceForm.jsx";
@@ -47,3 +48,5 @@ root.render(
 );
 
 
+// const root = createRoot(document.querySelector('#root'));
+// root.render(<RouterProvider router={router} />);

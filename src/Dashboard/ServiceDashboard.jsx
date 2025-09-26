@@ -1,9 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import editIcon from "../assets/editbtn.png";
 import binIcon from "../assets/bin.png";
 
-const ServiceDashboard = ({ services, setServices }) => {
+const ServiceDashboard = () => {
+  // Get from Outlet context instead of props
+  const { services, setServices } = useOutletContext();
+
   const handleDelete = (index) => {
     const confirmDelete = window.confirm("Are you sure you want to delete?");
     if (confirmDelete) {
@@ -40,6 +42,7 @@ const ServiceDashboard = ({ services, setServices }) => {
               <div className="text-black font-semibold text-base sm:text-lg">
                 {service.title}
               </div>
+
               {/* Edit Button as Link */}
               <div className="flex justify-center">
                 <Link
@@ -53,6 +56,7 @@ const ServiceDashboard = ({ services, setServices }) => {
                   />
                 </Link>
               </div>
+
               {/* Delete Button */}
               <div className="flex justify-center">
                 <button
@@ -75,4 +79,3 @@ const ServiceDashboard = ({ services, setServices }) => {
 };
 
 export default ServiceDashboard;
-

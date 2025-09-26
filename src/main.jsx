@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
@@ -11,61 +11,39 @@ import Login from "./components/Login.jsx";
 import DashboardHome from "./Dashboard/DashboardHome.jsx";
 import ServiceDashboard from "./Dashboard/ServiceDashboard.jsx";
 import PortfolioDashboard from "./Dashboard/PortfolioDashboard.jsx";
-import { MessagesProvider } from "./components/MessagesContext.jsx";
+import { MessagesProvider } from "./Context/MessagesContext.jsx";
 import MessageDashboard from "./Dashboard/MessageDashboard.jsx";
-import EditServiceForm from "./components/EditServiceForm";
+import EditServiceForm from "./components/EditServiceForm.jsx";
 import AddServiceForm from "./components/AddServiceForm.jsx";
 
-const RootApp = () => {
-  // Services state 
-  const [services, setServices] = useState([
-    { title: "Web Development" },
-    { title: "App Development" },
-  ]);
-
-  // Router setup
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <App />,
-      errorElement: <NotFound />,
-      children: [
-        {
-          path: "/",
-          element: <Home />,
-        },
-      ],
-    },
-    // Login Route
-    {
-      path: "/login",
-      element: <Login />,
-    },
-    // Admin Dashboard Routes
-    {
-      path: "/dashboard",
-      element: <Admin />,
-      errorElement: <NotFound />,
-      children: [
-        { path: "", element: <DashboardHome /> },
-        { path: "services", element: <ServiceDashboard services={services} setServices={setServices} /> },
-        { path: "edit-service/:index", element: <EditServiceForm services={services} setServices={setServices} /> },
-        { path: "add-service", element: <AddServiceForm services={services} setServices={setServices} /> },
-        { path: "portfolio", element: <PortfolioDashboard /> },
-        { path: "message", element: <MessageDashboard /> },
-      ],
-    },
-  ]);
-
-  return (
-    <React.StrictMode>
-      <MessagesProvider>
-        <RouterProvider router={router} />
-      </MessagesProvider>
-    </React.StrictMode>
-  );
-};
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <NotFound />,
+    children: [{ path: "/", element: <Home /> }],
+  },
+  { path: "/login", element: <Login /> },
+  {
+    path: "/dashboard",
+    element: <Admin />,
+    errorElement: <NotFound />,
+    children: [
+      { path: "", element: <DashboardHome /> },
+      { path: "services", element: <ServiceDashboard /> },
+      { path: "edit-service/:index", element: <EditServiceForm /> },
+      { path: "add-service", element: <AddServiceForm /> },
+      { path: "portfolio", element: <PortfolioDashboard /> },
+      { path: "message", element: <MessageDashboard /> },
+    ],
+  },
+]);
 
 const root = createRoot(document.querySelector("#root"));
-root.render(<RootApp />);
+root.render(
+  <MessagesProvider>
+    <RouterProvider router={router} />
+  </MessagesProvider>
+);
+
 

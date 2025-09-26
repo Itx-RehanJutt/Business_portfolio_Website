@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useMessages } from "./MessagesContext.jsx"; 
+import { useMessages } from "../Context/MessagesContext.jsx"; 
 
 const ContactSection = () => {
   const { addMessage } = useMessages(); 

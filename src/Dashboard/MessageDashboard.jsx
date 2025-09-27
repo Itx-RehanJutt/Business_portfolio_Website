@@ -5,9 +5,9 @@ const MessageDashboard = () => {
   const { messages } = useOutletContext();
 
   return (
-    <div className="bg-[#B7B0F5] min-h-screen flex items-center justify-center px-4 py-10">
+    <div className="bg-[#B7B0F5] min-h-screen flex-1 p-6">
       {/* Wrapper with fixed width */}
-      <div className="w-full max-w-[1016px] flex flex-col items-center justify-center gap-10 sm:gap-12 md:gap-[51px]">
+      <div className="w-full flex flex-col items-center justify-center gap-10 sm:gap-12 md:gap-[51px]">
         
         {/* Heading */}
         <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">

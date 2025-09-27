@@ -5,6 +5,7 @@ import ReviewSection from './ReviewSection'
 import ContactSection from './ContactSection'
 import Header from './Header'
 import Portfolio from './Portfolio'
+import ServiceSection from './ServiceSection'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
     <Header />
     <HeroSection />
     <AboutSection />
+    <ServiceSection />
     <Portfolio />
     <ReviewSection />
     <ContactSection />

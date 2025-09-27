@@ -4,10 +4,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],    // Custom Utility: font-inter
-        roboto: ['Roboto', 'sans-serif'],  // Custom Utility: font-roboto
-        poppins: ['Poppins', 'sans-serif'], // Custom Utility: font-poppins
-        dmSans: ['DM Sans', 'sans-serif'], // Custom Utility: font-dm-sans
+        montserrat: ['Montserrat', 'sans-serif'], // Custom Utility: font-montserrat
+        lato: ['Lato', 'sans-serif'], // Custom Utility: font-lato
+        playfair: ['Playfair Display', 'serif'], // Custom Utility: font-playfair
       },
     },
   },

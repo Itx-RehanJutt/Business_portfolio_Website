@@ -17,8 +17,8 @@ export default function AboutSection() {
         {/* Text */}
         <div className="text-center md:text-left">
           <h2 className="text-2xl font-bold text-gray-800 mb-2">About Us</h2>
-          <p className="text-gray-600 text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          <p className="text-gray-600 font-medium text-sm">
+            We are a passionate local business dedicated to delivering exceptional services tailored to your needs. With a focus on quality, reliability, and customer satisfaction, our mission is to make your experience seamless and memorable. Whether you're looking for professional expertise or creative solutions, we are here to help you achieve your goals.
           </p>
         </div>
       </div>

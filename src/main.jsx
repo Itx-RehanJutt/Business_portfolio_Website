@@ -11,6 +11,7 @@ import Login from "./components/Login.jsx";
 import DashboardHome from "./Dashboard/DashboardHome.jsx";
 import ServiceDashboard from "./Dashboard/ServiceDashboard.jsx";
 import PortfolioDashboard from "./Dashboard/PortfolioDashboard.jsx";
+import TestimonialsDashboard from "./Dashboard/TestimonialsDashboard.jsx";
 import { MessagesProvider } from "./Context/MessagesContext.jsx";
 
 import MessageDashboard from "./Dashboard/MessageDashboard.jsx";
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
       { path: "edit-service/:index", element: <EditServiceForm /> },
       { path: "add-service", element: <AddServiceForm /> },
       { path: "portfolio", element: <PortfolioDashboard /> },
+      { path: "testimonials", element: <TestimonialsDashboard /> },
       { path: "message", element: <MessageDashboard /> },
     ],
   },
@@ -46,7 +48,3 @@ root.render(
     <RouterProvider router={router} />
   </MessagesProvider>
 );
-
-
-// const root = createRoot(document.querySelector('#root'));
-// root.render(<RouterProvider router={router} />);

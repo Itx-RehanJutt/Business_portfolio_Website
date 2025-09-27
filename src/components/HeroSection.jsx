@@ -9,12 +9,12 @@ const HeroSection = () => {
       <div className="max-w-3xl">
         {/* Heading */}
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
-          Business Name
+          Business Portfolio
         </h1>
 
         {/* Sub Text */}
         <p className="text-white text-base md:text-lg mb-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+          Your trusted partner for quality and excellence.
         </p>
 
         {/* Button */}

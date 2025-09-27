@@ -9,43 +9,43 @@ import service6 from "../assets/service6.png";
 const servicesData = [
   {
     id: 1,
-    title: "SERVICE ONE",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Professional Consultation",
+    desc: "Get expert guidance tailored to your specific needs, helping you make the right decisions for your business or personal goals.",
     img: service1,
   },
   {
     id: 2,
-    title: "SERVICE SECOND",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Custom Solutions",
+    desc: "We design and deliver services that are personalized to fit your requirements, ensuring maximum value and efficiency.",
     img: service2,
   },
   {
     id: 3,
-    title: "SERVICE THIRD",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Maintenance & Support",
+    desc: "We offer ongoing maintenance and support services to ensure your solutions remain effective and up-to-date.",
     img: service3,
   },
   {
     id: 4,
-    title: "SERVICE FOURTH",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Digital Marketing",
+    desc: "We help you reach your target audience through effective digital marketing strategies, including SEO, social media, and content marketing.",
     img: service4,
   },
   {
     id: 5,
-    title: "SERVICE FIFTH",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Content Creation",
+    desc: "We create high-quality, engaging content tailored to your audience, helping you communicate your message effectively.",
     img: service5,
   },
   {
     id: 6,
-    title: "SERVICE SIXTH",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Graphic Design",
+    desc: "We create visually stunning designs that effectively communicate your brand message and engage your audience.",
     img: service6,
   },
 ];
 
-const ServicesGrid = () => {
+const ServiceSection = () => {
   return (
     <main className="w-full bg-gray-100 min-h-screen flex flex-col items-center py-12 px-4">
       {/* Heading */}
@@ -90,4 +90,4 @@ const ServicesGrid = () => {
   );
 };
 
-export default ServicesGrid;
+export default ServiceSection;

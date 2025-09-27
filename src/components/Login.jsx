@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-// import Image from "/images/login/login.png";
-// import Facebook from "/images/login/facebookIcon.png";
-// import Google from "/images/login/googleIcon.png";
-// import Apple from "/images/login/appleIcon.png";
+import Image from "/Login/loginLogo.png";
+import Facebook from "/Login/facebook.png";
+import Google from "/Login/google.png";
+import Apple from "/Login/apple.png";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -133,13 +133,13 @@ function Login() {
 
         <div className="flex justify-center mt-4 space-x-4">
           <button className="bg-gray-300 px-8 rounded-lg hover:bg-gray-200">
-            <img src="" alt="Google" className="w-4 h-4 items-center" />
+            <img src={Google} alt="Google" className="w-4 h-4 items-center" />
           </button>
           <button className="bg-gray-300 px-8 rounded-lg hover:bg-gray-200">
-            <img src="" alt="Facebook" className="w-4 h-4" />
+            <img src={Facebook} alt="Facebook" className="w-4 h-4" />
           </button>
           <button className="bg-gray-300 px-8 py-2 rounded-lg hover:bg-gray-200">
-            <img src="" alt="Apple" className="w-4 h-4" />
+            <img src={Apple} alt="Apple" className="w-4 h-4" />
           </button>
         </div>
       </div>

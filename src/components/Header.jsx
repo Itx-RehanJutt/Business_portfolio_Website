@@ -5,7 +5,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="w-full shadow-md fixed top-0 left-0 bg-white z-50">
+    <header className="w-full shadow-md fixed top-0 left-0 bg-white font-serif z-50">
       <nav className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6 md:px-12">
         {/* Logo */}
         <div className="flex items-center">
@@ -13,7 +13,7 @@ const Header = () => {
         </div>
 
         {/* Nav Links - Desktop */}
-        <ul className="hidden md:flex space-x-8 text-gray-700 font-medium">
+        <ul className="hidden md:flex font-medium space-x-8 text-gray-700">
           <li><a href="#home" className="hover:text-blue-600">Home</a></li>
           <li><a href="#about" className="hover:text-blue-600">About</a></li>
           <li><a href="#services" className="hover:text-blue-600">Services</a></li>
@@ -35,7 +35,7 @@ const Header = () => {
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-lg">
+        <div className="md:hidden bg-white font-[lato] shadow-lg">
           <ul className="flex flex-col space-y-4 py-6 px-6 text-gray-700 font-medium">
             <li><a href="#home" className="hover:text-blue-600">Home</a></li>
             <li><a href="#about" className="hover:text-blue-600">About</a></li>

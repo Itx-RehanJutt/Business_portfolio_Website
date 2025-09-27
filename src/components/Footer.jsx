@@ -6,15 +6,15 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8">
         {/* Left Side */}
         <div>
-          <h2 className="text-xl font-bold text-black mb-2">Bussiness Name</h2>
+          <h2 className="text-xl font-bold text-black mb-2">Bussiness Portfolio</h2>
           <p className="text-sm text-gray-500">©Copyright</p>
         </div>
 
         {/* Right Side */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-8 text-sm">
           {/* Column 1 */}
           <div>
-            <ul className="space-y-2 text-gray-600">
+            <ul className="space-y-2 font-bold text-gray-600">
               <li className="hover:text-black cursor-pointer">About Us</li>
               <li className="hover:text-black cursor-pointer">Features</li>
               <li className="hover:text-black cursor-pointer">Pricing</li>
@@ -24,7 +24,7 @@ export default function Footer() {
 
           {/* Column 2 */}
           <div>
-            <ul className="space-y-2 text-gray-600">
+            <ul className="space-y-2 font-bold text-gray-600">
               <li className="hover:text-black cursor-pointer">Documentation</li>
               <li className="hover:text-black cursor-pointer">FAQ</li>
               <li className="hover:text-black cursor-pointer">Support</li>
